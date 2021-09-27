@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "609074622928",
+    "project_id": "recorder-bee62",
+    "storage_bucket": "recorder-bee62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609074622928:android:544fb91c39aa282aa649d5",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609074622928-rc2ji8em36dhc7hpc7ea98b8cm2l4dp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuPYR7zPpamf5MlPms8XgfJnBk_J5_yS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609074622928-rc2ji8em36dhc7hpc7ea98b8cm2l4dp7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
