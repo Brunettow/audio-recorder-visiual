@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'record.dart';
 
 Future main() async {
-  WidgetsFlutterBinding.ensureInitialized(); 
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
 }
@@ -47,4 +47,4 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
-} 
+}

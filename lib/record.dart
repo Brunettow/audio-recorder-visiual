@@ -9,6 +9,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:path/path.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:intl/intl.dart';
+import 'package:audio_wave/audio_wave.dart';
 
 var path = "";
 bool isCountVisible = false;
@@ -55,6 +56,7 @@ class _RecordState extends State<Record> {
   startRecording() async {
     await myRecorder!.openAudioSession();
     setState(() {
+      isRecording = false;
       isCountVisible = true;
       isRecordVisible = false;
       isListenVisible = false;
@@ -67,10 +69,11 @@ class _RecordState extends State<Record> {
     _timer = new Timer.periodic(
       oneSec,
       (Timer timer) {
-        if (_count == 0) {
+        if (_count == 1 ) {
           setState(() {
             timer.cancel();
-            countText = "Recording...";
+            countText = "recording...";
+            isRecording = true;
           });
           recording();
         } else {
@@ -104,6 +107,7 @@ class _RecordState extends State<Record> {
     await myRecorder!.stopRecorder();
     myRecorder!.closeAudioSession();
     setState(() {
+      isRecording = false;
       isCountVisible = false;
       isRecordVisible = true;
       isListenVisible = true;
@@ -184,6 +188,35 @@ class _RecordState extends State<Record> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Visibility(
+            child: AudioWave(
+              height: 32,
+              width: 88,
+              spacing: 2.5,
+              bars: [
+                AudioWaveBar(height: 10, color: Colors.lightBlueAccent),
+                AudioWaveBar(height: 30, color: Colors.blue),
+                AudioWaveBar(height: 70, color: Colors.black),
+                AudioWaveBar(height: 40),
+                AudioWaveBar(height: 20, color: Colors.orange),
+                AudioWaveBar(height: 10, color: Colors.lightBlueAccent),
+                AudioWaveBar(height: 30, color: Colors.blue),
+                AudioWaveBar(height: 70, color: Colors.black),
+                AudioWaveBar(height: 40),
+                AudioWaveBar(height: 20, color: Colors.orange),
+                AudioWaveBar(height: 10, color: Colors.lightBlueAccent),
+                AudioWaveBar(height: 30, color: Colors.blue),
+                AudioWaveBar(height: 70, color: Colors.black),
+                AudioWaveBar(height: 40),
+                AudioWaveBar(height: 20, color: Colors.orange),
+                AudioWaveBar(height: 10, color: Colors.lightBlueAccent),
+                AudioWaveBar(height: 30, color: Colors.blue),
+                AudioWaveBar(height: 70, color: Colors.black),
+                AudioWaveBar(height: 40),
+                AudioWaveBar(height: 20, color: Colors.orange),
+              ],
+            ),
+            visible: isRecording),
         Visibility(child: Text(countText), visible: isCountVisible),
         Visibility(
           child: ElevatedButton.icon(
